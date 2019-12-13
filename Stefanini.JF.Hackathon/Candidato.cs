@@ -4,11 +4,20 @@ using System.Text;
 
 namespace Stefanini.JF.Hackathon
 {
-    class Candidato
+    public class Candidato
     {
-        public String Nome { get; set; }
-        public String Cidade { get; set; }
+        public string Nome { get; set; }
+        public string Cidade { get; set; }
         public double Nota { get; set; }
         public bool Aprovado { get; set; }
+
+        public Candidato() { }
+
+        public Candidato(string Nome, string Cidade, double Nota)
+        {
+            this.Nome = Nome;
+            this.Cidade = Cidade;
+            this.Nota = Nota;
+        }
     }
 }

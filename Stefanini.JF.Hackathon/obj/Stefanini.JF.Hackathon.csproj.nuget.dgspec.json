@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\wnaraujo\\Documents\\Stefanini.JF.Hackathon\\Stefanini.JF.Hackathon\\Stefanini.JF.Hackathon.csproj": {}
+    "C:\\Users\\wnaraujo\\Documents\\Git\\Stefanini.JF.Hackathon\\Stefanini.JF.Hackathon\\Stefanini.JF.Hackathon.csproj": {}
   },
   "projects": {
-    "C:\\Users\\wnaraujo\\Documents\\Stefanini.JF.Hackathon\\Stefanini.JF.Hackathon\\Stefanini.JF.Hackathon.csproj": {
+    "C:\\Users\\wnaraujo\\Documents\\Git\\Stefanini.JF.Hackathon\\Stefanini.JF.Hackathon\\Stefanini.JF.Hackathon.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\wnaraujo\\Documents\\Stefanini.JF.Hackathon\\Stefanini.JF.Hackathon\\Stefanini.JF.Hackathon.csproj",
+        "projectUniqueName": "C:\\Users\\wnaraujo\\Documents\\Git\\Stefanini.JF.Hackathon\\Stefanini.JF.Hackathon\\Stefanini.JF.Hackathon.csproj",
         "projectName": "Stefanini.JF.Hackathon",
-        "projectPath": "C:\\Users\\wnaraujo\\Documents\\Stefanini.JF.Hackathon\\Stefanini.JF.Hackathon\\Stefanini.JF.Hackathon.csproj",
+        "projectPath": "C:\\Users\\wnaraujo\\Documents\\Git\\Stefanini.JF.Hackathon\\Stefanini.JF.Hackathon\\Stefanini.JF.Hackathon.csproj",
         "packagesPath": "C:\\Users\\wnaraujo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\wnaraujo\\Documents\\Stefanini.JF.Hackathon\\Stefanini.JF.Hackathon\\obj\\",
+        "outputPath": "C:\\Users\\wnaraujo\\Documents\\Git\\Stefanini.JF.Hackathon\\Stefanini.JF.Hackathon\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
