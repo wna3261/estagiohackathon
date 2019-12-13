@@ -21,9 +21,9 @@ namespace Stefanini.JF.Hackathon
                     {
                         case 1:
                             {
+                                candidatos.Add(CandidatoService.CadastrarNotaCandidato());
                                 Console.WriteLine("Cadastrando candidato....");
                                 Thread.Sleep(1000);
-                                candidatos.Add(CandidatoService.CadastrarNotaCandidato());
                                 Console.WriteLine("Candidato cadastrado com sucesso!");
                                 Thread.Sleep(1000);
                                 Console.WriteLine();
@@ -33,6 +33,9 @@ namespace Stefanini.JF.Hackathon
                             }
                         case 2:
                             CandidatoService.GerarCandidatosAleatoriamente(candidatos);
+                            break;
+                        case 3:
+                            CandidatoService.ListarCandidatos(candidatos);
                             break;
                     }
                 }
@@ -52,9 +55,10 @@ namespace Stefanini.JF.Hackathon
             Console.WriteLine("0 - SAIR");
             Console.WriteLine("1 - CADASTRAR NOTA DO CANDIDATO");
             Console.WriteLine("2 - GERAR CANDIDATOS ALEATORIAMENTE");
-            Console.WriteLine("3 - INSERIR NUMERO DE VAGAS");
-            Console.WriteLine("4 - EXIBIR CANDIDATOS APROVADOS");
-            Console.WriteLine("5 - EXIBIR PORCENTAGEM DE APROVADOS POR CIDADE");
+            Console.WriteLine("3 - LISTAR CANDIDATOS");
+            Console.WriteLine("4 - INSERIR NUMERO DE VAGAS");
+            Console.WriteLine("5 - EXIBIR CANDIDATOS APROVADOS");
+            Console.WriteLine("6 - EXIBIR PORCENTAGEM DE APROVADOS POR CIDADE");
             Console.WriteLine();
             Console.Write("ESCOLHA UMA OPÇÃO: ");
         }

@@ -12,11 +12,12 @@ namespace Stefanini.JF.Hackathon.Services
         {
             var success = false;
             var cidades = new List<string>();
+            Random random = new Random();
             Console.WriteLine("Digite o numero de cidades existentes:");
             Int32.TryParse(Console.ReadLine(), out var numCidades);
             for (int i = 0; i < numCidades; i++)
             {
-                cidades.Add(Program.RandomString(5, false));
+                cidades.Add(Program.RandomString(random.Next(1,5), false));
             }
             while (!success)
             {
@@ -28,8 +29,8 @@ namespace Stefanini.JF.Hackathon.Services
                 {
                     for (int i = 0; i < numCandidatos; i++)
                     {
-                        Random random = new Random();
-                        var n = Program.RandomString(5, false);
+                      
+                        var n = Program.RandomString(random.Next(1,5), false);
                         var c = cidades[random.Next(0, numCidades)];
                         var nt = random.Next(100) * random.NextDouble();
                         nt = Math.Round(nt, 2);
@@ -39,15 +40,6 @@ namespace Stefanini.JF.Hackathon.Services
                 }
             }
 
-            foreach (var candidato in candidatos)
-            {
-                Console.WriteLine($"NOME: {candidato.Nome}");
-
-                Console.WriteLine(candidato.Cidade);
-                Console.WriteLine(candidato.Nota);
-            }
-
-            Console.ReadKey();
         }
 
         public static Candidato CadastrarNotaCandidato()
@@ -70,13 +62,23 @@ namespace Stefanini.JF.Hackathon.Services
 
             do
             {
-                Console.WriteLine("Digite o nota:");
+                Console.WriteLine("Digite uma nota com valor entre 0 e 100:");
                 notaDigitada = Console.ReadLine();
                 double.TryParse(notaDigitada, out nota);
             } while ((nota < 0 || nota > 100) || !notaDigitada.Any(char.IsDigit));
 
             Candidato novo = new Candidato(nome, cidade, nota);
             return novo;
+        }
+
+        public static void ListarCandidatos(List<Candidato> candidatos)
+        {
+            candidatos = candidatos.OrderByDescending(o => o.Nota).ToList();
+            foreach (var candidato in candidatos)
+            {
+                Console.WriteLine($"NOME: {candidato.Nome} \t CIDADE: {candidato.Cidade} \t NOTA: {candidato.Nota}");
+            }
+            Console.ReadKey();
         }
     }
 }
