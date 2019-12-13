@@ -12,6 +12,7 @@ namespace Stefanini.JF.Hackathon
         {
             int opcao = -1;
             List<Candidato> candidatos = new List<Candidato>();
+            int numeroDeVagas = 0;
             while (opcao != 0)
             {
                 ImprimirMenu();
@@ -35,6 +36,16 @@ namespace Stefanini.JF.Hackathon
                             CandidatoService.GerarCandidatosAleatoriamente(candidatos);
                             break;
                         case 3:
+                            bool success = false;
+                            while (!success)
+                            {
+                                Console.WriteLine("Digite o numero de vagas:");
+                                success = int.TryParse(Console.ReadLine(), out numeroDeVagas);
+                            }
+                            Console.WriteLine($"NUMERO DE VAGAS: {numeroDeVagas}");
+                            Console.ReadKey();
+                            break;
+                        case 4:
                             CandidatoService.ListarCandidatos(candidatos);
                             break;
                     }
@@ -55,10 +66,9 @@ namespace Stefanini.JF.Hackathon
             Console.WriteLine("0 - SAIR");
             Console.WriteLine("1 - CADASTRAR NOTA DO CANDIDATO");
             Console.WriteLine("2 - GERAR CANDIDATOS ALEATORIAMENTE");
-            Console.WriteLine("3 - LISTAR CANDIDATOS");
-            Console.WriteLine("4 - INSERIR NUMERO DE VAGAS");
-            Console.WriteLine("5 - EXIBIR CANDIDATOS APROVADOS");
-            Console.WriteLine("6 - EXIBIR PORCENTAGEM DE APROVADOS POR CIDADE");
+            Console.WriteLine("3 - INSERIR NUMERO DE VAGAS");
+            Console.WriteLine("4 - EXIBIR CANDIDATOS APROVADOS");
+            Console.WriteLine("5 - EXIBIR PORCENTAGEM DE APROVADOS POR CIDADE");
             Console.WriteLine();
             Console.Write("ESCOLHA UMA OPÇÃO: ");
         }
