@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
+using Stefanini.JF.Hackathon.Services;
 
 namespace Stefanini.JF.Hackathon
 {
@@ -14,8 +15,6 @@ namespace Stefanini.JF.Hackathon
             while (opcao != 0)
             {
                 ImprimirMenu();
-
-
                 if (int.TryParse(Console.ReadLine(), out opcao))
                 {
                     switch (opcao)
@@ -24,6 +23,7 @@ namespace Stefanini.JF.Hackathon
                             {
                                 Console.WriteLine("Cadastrando candidato....");
                                 Thread.Sleep(1000);
+                                candidatos.Add(CandidatoService.CadastrarNotaCandidato());
                                 Console.WriteLine("Candidato cadastrado com sucesso!");
                                 Thread.Sleep(1000);
                                 Console.WriteLine();
@@ -32,13 +32,15 @@ namespace Stefanini.JF.Hackathon
                                 break;
                             }
                         case 2:
-                            GerarCandidatosAleatoriamente(candidatos);
+                            CandidatoService.GerarCandidatosAleatoriamente(candidatos);
                             break;
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Digite um numero intiero.");
+                    opcao = -1;
+                    Console.Write("Erro - É preciso digitar um numero inteiro. Pressione qualquer tecla para continuar");
+                    Console.ReadLine();
                 }
             }
         }
@@ -58,59 +60,14 @@ namespace Stefanini.JF.Hackathon
         }
         public static string RandomString(int size, bool lowerCase)
         {
-            StringBuilder builder = new StringBuilder();
-            Random random = new Random();
-            char ch;
-            for (int i = 0; i < size; i++)
+            var builder = new StringBuilder();
+            var random = new Random();
+            for (var i = 0; i < size; i++)
             {
-                ch = Convert.ToChar(Convert.ToInt32(Math.Floor(26 * random.NextDouble() + 65)));
+                var ch = Convert.ToChar(Convert.ToInt32(Math.Floor(26 * random.NextDouble() + 65)));
                 builder.Append(ch);
             }
-            if (lowerCase)
-                return builder.ToString().ToLower();
-            return builder.ToString();
-        }
-        public static void GerarCandidatosAleatoriamente(List<Candidato> candidatos)
-        {
-            bool success = false;
-            int numCandidatos;
-            int numCidades;
-            var cidades = new List<string>();
-            Console.WriteLine("Digite o numero de cidades existentes:");
-            numCidades = int.Parse(Console.ReadLine());
-            for (int i = 0; i < numCidades; i++)
-            {
-                cidades.Add(RandomString(5, false));
-            }
-            while (!success)
-            {
-                Console.WriteLine("Quantos candidatos voce deseja gerar?");
-                success = int.TryParse(Console.ReadLine(), out numCandidatos);
-                if (!success)
-                    Console.WriteLine("Digite um numero inteiro");
-                else
-                {
-                    for (int i = 0; i < numCandidatos; i++)
-                    {
-                        Random random = new Random();
-                        string n = RandomString(5, false);
-                        string c = cidades[random.Next(0, numCidades)];
-                        double nt = random.Next(100) * random.NextDouble();
-                        nt = Math.Round(nt, 2);
-                        var novoCandidato = new Candidato(n, c, nt);
-                        candidatos.Add(novoCandidato);
-                    }
-                }
-            }
-
-            //foreach (var candidato in candidatos)
-            //{
-            //    Console.WriteLine(candidato.Nome);
-            //    Console.WriteLine(candidato.Cidade);
-            //    Console.WriteLine(candidato.Nota);
-            //}
-
-            //Console.ReadKey();
+            return lowerCase ? builder.ToString().ToLower() : builder.ToString();
         }
     }
 }
