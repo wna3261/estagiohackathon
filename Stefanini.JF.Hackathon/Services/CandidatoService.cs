@@ -107,6 +107,7 @@ namespace Stefanini.JF.Hackathon.Services
             bool conseguiuConverter = false;
             bool gravar = false;
             int valor = -1;
+            int posicao2 = 1;
             while (!conseguiuConverter)
             {
                 Console.WriteLine("\nDESEJA QUE AS INFORMAÕES SEJAM GRAVADAS EM UM ARQUIVO TEXTO? 1-SIM 0-NAO");
@@ -134,8 +135,8 @@ namespace Stefanini.JF.Hackathon.Services
                     {
                         var aprovado = candidato.Aprovado ? "APROVADO" : "REPROVADO";
                         escritor.WriteLine($"NOME: {candidato.Nome} \t CIDADE: {candidato.Cidade} \t NOTA: {candidato.Nota}" +
-                                          $" \t {aprovado} \t COLOCAÇÃO: {posicao}");
-                        posicao++;
+                                          $" \t {aprovado} \t COLOCAÇÃO: {posicao2}");
+                        posicao2++;
                     }
                 }
             }
