@@ -18,6 +18,7 @@ namespace Stefanini.JF.Hackathon
             this.Nome = Nome;
             this.Cidade = Cidade;
             this.Nota = Nota;
+            this.Aprovado = false;
         }
     }
 }

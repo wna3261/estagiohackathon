@@ -12,7 +12,7 @@ namespace Stefanini.JF.Hackathon
         {
             int opcao = -1;
             List<Candidato> candidatos = new List<Candidato>();
-            int numeroDeVagas = 0;
+            uint numeroDeVagas = 0;
             while (opcao != 0)
             {
                 ImprimirMenu();
@@ -40,13 +40,13 @@ namespace Stefanini.JF.Hackathon
                             while (!success)
                             {
                                 Console.WriteLine("Digite o numero de vagas:");
-                                success = int.TryParse(Console.ReadLine(), out numeroDeVagas);
+                                success = uint.TryParse(Console.ReadLine(), out numeroDeVagas);
                             }
                             Console.WriteLine($"NUMERO DE VAGAS: {numeroDeVagas}");
                             Console.ReadKey();
                             break;
                         case 4:
-                            CandidatoService.ListarCandidatos(candidatos);
+                            CandidatoService.ListarCandidatos(candidatos, numeroDeVagas);
                             break;
                     }
                 }

@@ -71,12 +71,39 @@ namespace Stefanini.JF.Hackathon.Services
             return novo;
         }
 
-        public static void ListarCandidatos(List<Candidato> candidatos)
+        public static void ListarCandidatos(List<Candidato> candidatos, uint numeroDeVagas)
         {
             candidatos = candidatos.OrderByDescending(o => o.Nota).ToList();
+            int posicao = 1;
+            string aprovado;
+            for (int i = 0; i < numeroDeVagas; i++)
+            {
+                if (numeroDeVagas > candidatos.Count())
+                {
+                    foreach (var candidato in candidatos)
+                    {
+                        if (candidato.Nota > 0)
+                            candidato.Aprovado = true;
+                    }
+                }
+                else
+                {
+                    if (candidatos[i] != null && candidatos[i].Nota > 0)
+                    {
+                        candidatos[i].Aprovado = true;
+                    }
+                }
+            }
+            Console.WriteLine($"NUMERO DE VAGAS: {numeroDeVagas}");
             foreach (var candidato in candidatos)
             {
-                Console.WriteLine($"NOME: {candidato.Nome} \t CIDADE: {candidato.Cidade} \t NOTA: {candidato.Nota}");
+                if (candidato.Aprovado)
+                    aprovado = "APROVADO";
+                else
+                    aprovado = "REPROVADO";
+                Console.WriteLine($"NOME: {candidato.Nome} \t CIDADE: {candidato.Cidade} \t NOTA: {candidato.Nota}" +
+                                  $" \t {aprovado} \t COLOCAÇÃO: {posicao}");
+                posicao++;
             }
             Console.ReadKey();
         }
