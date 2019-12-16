@@ -106,6 +106,7 @@ namespace Stefanini.JF.Hackathon.Services
 
         public static void ExibirPercentualCidade(List<Candidato> candidatos, uint numeroDeVagas)
         {
+            candidatos = candidatos.OrderByDescending(o => o.Nota).ToList();
             List<Candidato> aprovados = new List<Candidato>();
             int numAprovados = 0;
             foreach (var candidato in candidatos)
@@ -119,11 +120,10 @@ namespace Stefanini.JF.Hackathon.Services
             }
 
             var candidatoCidade = aprovados.GroupBy(o => o.Cidade);
-            double percentual;
             Console.WriteLine($"QUANTIDADE DE APROVADOS: {aprovados.Count()}");
             foreach (var x in candidatoCidade)
             {
-                percentual = Math.Round((double) x.Count() / aprovados.Count(), 2);
+                var percentual = Math.Round((double) x.Count() / aprovados.Count(), 2);
                 Console.WriteLine($"RELAÇÃO CIDADE: {x.Key} APROVADOS NA CIDADE: {x.Count()} PERCENTUAL: {(percentual)*100}%");
             }
             Console.ReadKey();
