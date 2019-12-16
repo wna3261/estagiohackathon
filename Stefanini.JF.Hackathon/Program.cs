@@ -43,6 +43,7 @@ namespace Stefanini.JF.Hackathon
                                 success = uint.TryParse(Console.ReadLine(), out numeroDeVagas);
                             }
                             Console.WriteLine($"NUMERO DE VAGAS: {numeroDeVagas}");
+                            Console.WriteLine("PRESSIONE UMA TECLA PARA CONTINUAR");
                             Console.ReadKey();
                             break;
                         case 4:
