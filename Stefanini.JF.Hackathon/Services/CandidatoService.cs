@@ -75,7 +75,6 @@ namespace Stefanini.JF.Hackathon.Services
         {
             candidatos = candidatos.OrderByDescending(o => o.Nota).ToList();
             int posicao = 1;
-            string aprovado;
             for (int i = 0; i < numeroDeVagas; i++)
             {
                 if (numeroDeVagas > candidatos.Count())
@@ -97,13 +96,35 @@ namespace Stefanini.JF.Hackathon.Services
             Console.WriteLine($"NUMERO DE VAGAS: {numeroDeVagas}");
             foreach (var candidato in candidatos)
             {
-                if (candidato.Aprovado)
-                    aprovado = "APROVADO";
-                else
-                    aprovado = "REPROVADO";
+                var aprovado = candidato.Aprovado ? "APROVADO" : "REPROVADO";
                 Console.WriteLine($"NOME: {candidato.Nome} \t CIDADE: {candidato.Cidade} \t NOTA: {candidato.Nota}" +
                                   $" \t {aprovado} \t COLOCAÇÃO: {posicao}");
                 posicao++;
+            }
+            Console.ReadKey();
+        }
+
+        public static void ExibirPercentualCidade(List<Candidato> candidatos, uint numeroDeVagas)
+        {
+            List<Candidato> aprovados = new List<Candidato>();
+            int numAprovados = 0;
+            foreach (var candidato in candidatos)
+            {
+                if (numAprovados < numeroDeVagas && candidato.Nota > 0)
+                {
+                    candidato.Aprovado = true;
+                    aprovados.Add(candidato);
+                    numAprovados++;
+                }
+            }
+
+            var candidatoCidade = aprovados.GroupBy(o => o.Cidade);
+            double percentual;
+            Console.WriteLine($"QUANTIDADE DE APROVADOS: {aprovados.Count()}");
+            foreach (var x in candidatoCidade)
+            {
+                percentual = Math.Round((double) x.Count() / aprovados.Count(), 2);
+                Console.WriteLine($"RELAÇÃO CIDADE: {x.Key} APROVADOS NA CIDADE: {x.Count()} PERCENTUAL: {(percentual)*100}%");
             }
             Console.ReadKey();
         }

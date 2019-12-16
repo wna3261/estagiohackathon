@@ -48,6 +48,9 @@ namespace Stefanini.JF.Hackathon
                         case 4:
                             CandidatoService.ListarCandidatos(candidatos, numeroDeVagas);
                             break;
+                        case 5:
+                            CandidatoService.ExibirPercentualCidade(candidatos, numeroDeVagas);
+                            break;
                     }
                 }
                 else
