@@ -13,7 +13,7 @@ namespace Stefanini.JF.Hackathon.Services
         public static void GerarCandidatosAleatoriamente(List<Candidato> candidatos)
         {
             var success = false;
-            var cidades = new List<string>();
+            var cidades = new HashSet<string>();
             Random random = new Random();
             Console.WriteLine("Digite o numero de cidades existentes:");
             Int32.TryParse(Console.ReadLine(), out var numCidades);
@@ -33,7 +33,7 @@ namespace Stefanini.JF.Hackathon.Services
                     {
 
                         var n = Program.RandomString(random.Next(1, 5), false);
-                        var c = cidades[random.Next(0, numCidades)];
+                        var c = cidades.ElementAt(random.Next(0, numCidades));
                         var nt = random.Next(100) * random.NextDouble();
                         nt = Math.Round(nt, 2);
                         var novoCandidato = new Candidato(n, c, nt);
