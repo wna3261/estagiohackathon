@@ -1,0 +1,26 @@
+<div class="form-get">
+  <h2>Detalhes do candidato</h2>
+
+  <hr />
+  <div class="candidato-parameters" *ngIf="candidato">
+    <div>
+      <label><b>Id: </b></label> {{candidato.id}}
+    </div>
+    <div>
+      <label><b>Nome: </b></label> {{candidato.nome}}
+    </div>
+    <div>
+      <label><b>Cidade: </b></label> {{candidato.cidade}}
+    </div>
+    <div>
+      <label><b>Nota: </b></label> {{candidato.nota}}
+    </div>
+    <div>
+      <label><b>Situação: </b></label> {{candidato.situacao? "Aprovado" : "Reprovado"}}
+    </div>
+  </div>
+
+  <br>
+  <button (click)="home()" class="btn btn-primary">Voltar</button><br>
+
+</div>

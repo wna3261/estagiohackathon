@@ -1,0 +1,28 @@
+.form-create {
+    text-align: -webkit-center;
+}
+
+.required:after {
+    content: ' *';
+    color: red;
+}
+
+.required-write {
+    color: red;
+    font-size: smaller;
+}
+
+.form-group {
+    text-align: left;
+    max-width: 40vw;
+}
+
+.btn {
+    border-radius: 120px;
+    width: 120px;
+}
+
+.btn:hover {
+    background-color: lightblue;
+    color: black;
+}

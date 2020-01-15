@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+
+    <a class="navbar-brand" [routerLink]="['/home']" routerLinkActive="router-link-active" >Hackathon REST API</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a routerLink="home" class="nav-link" routerLinkActive="active">Home</a>
+        </li>
+        <li class="nav-item active">
+          <a routerLink="cadastrar"class="nav-link" rounterLinkActive="active">Cadastrar</a>
+        </li>
+        <li class="nav-item active">
+          <a routerLink="exibirResultados" class="nav-link" rounterLinkActive="active">Calcular Aprovados</a>
+        </li>
+      </ul>
+    </div>
+
+</nav>
+  <router-outlet></router-outlet>

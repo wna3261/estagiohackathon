@@ -1,0 +1,33 @@
+<div class="form-create">
+  <form #registerForm="ngForm" (ngSubmit)="onSubmit()">
+    <h2 class="text-center text-primary">Cadastro de Candidato</h2>
+    <hr>
+
+    <div class="form-group">
+    <label class="required">Nome</label>
+      <input type="text" class="form-control" required name="nome" [(ngModel)]="candidato.nome">
+    </div>
+
+    <div class="form-group">
+      <label class="required">Cidade</label>
+      <input type="text" class="form-control" required name="cidade" [(ngModel)]="candidato.cidade">
+    </div>
+
+    <div class="form-group">
+      <label class="required">Nota</label>
+      <input type="number" min="0" onkeypress="return event.charCode >= 48 && event.charCode <= 57 || event.charCode == 44"
+        class="form-control" required name="nota" [(ngModel)]="candidato.nota">
+      <label class="required-write">* Indica campos obrigatórios</label>
+    </div>
+
+    <div class="form-group text-center" [hidden]="submitted">
+      <button class="btn btn-success m-2" type="submit"><i class="fas fa-check"></i> Cadastrar</button>
+      <button class="btn btn-danger" type="button" (click)="cancel()"><i class="fas fa-times"></i> Cancelar</button>
+    </div>
+
+    <div [hidden]="!submitted">
+      <i class="fas fa-spinner"></i>
+    </div>
+
+  </form>
+</div>

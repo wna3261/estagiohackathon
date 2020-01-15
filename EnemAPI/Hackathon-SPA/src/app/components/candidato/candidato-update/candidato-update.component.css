@@ -1,0 +1,27 @@
+.form-update {
+    text-align: -webkit-center;
+}
+
+.form-group {
+    text-align: left;
+    max-width: 40vw;
+}
+
+.required:after {
+    content: ' *';
+    color: red;
+}
+
+.required-write {
+    color: red;
+    font-size: smaller;
+}
+
+.btn {
+    border-radius: 120px;
+}
+
+.btn:hover {
+    background-color: lightgray;
+    color: black;
+}

@@ -1,0 +1,49 @@
+<div class="panel-heading">
+  <h2 class="ml-2">CANDIDATOS</h2>
+  <br>
+</div>
+
+<div class="form-list">
+  <div class="container-fluid">
+    <div class="panel-body">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Classificação</th>
+            <th>Nome</th>
+            <th>Cidade</th>
+            <th>Nota</th>
+            <th>Situação</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let candidato of candidatos; let i = index" [attr.data-index]="i">
+            <td>{{i+1}}</td>
+            <td>{{candidato.nome}}</td>
+            <td>{{candidato.cidade}}</td>
+            <td>{{candidato.nota}}</td>
+            <td>{{candidato.situacao? "Aprovado" : "Reprovado"}}</td>
+            <td>
+              <button (click)="getCandidato(candidato.id)" class="btn btn-info mr-2" title="Detalhar"><i class="fas fa-address-card"></i></button>
+              <button (click)="atualizarCandidato(candidato.id)" class="btn btn-warning mr-2" title="Atualizar"><i class="fas fa-pen"></i></button>
+              <!-- <button (click)="deletarCandidato(candidato.id)" class="btn btn-danger">Delete</button> -->
+              <button type="button" class="btn btn-danger" (click)="openModal(deleteCandidato)" title="Excluir"><i class="fas fa-trash-alt"></i></button>
+
+              <ng-template #deleteCandidato>
+                <div class="modal-body text-center">
+                  <p>Deseja realmente excluir o candidato {{candidato.nome}}?</p>
+                  <button type="button" class="btn btn-primary" (click)="decline()">Não</button>
+                  <button type="button" class="btn btn-default" (click)="deletarCandidato(candidato.id)">Excluir</button>
+                </div>
+              </ng-template>
+
+            </td>
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="form-update">
+  <form #updateForm="ngForm" style="width: 400px;" (ngSubmit)="atualizarCandidato()">
+    <h2 class="text-center text-primary">Atualização de Candidato</h2>
+    <hr>
+
+    <!-- <div class="form-group">
+    <input hidden=true type="text" class="form-control" required name="id" [(ngModel)]="candidato.id" placeholder="Nome">
+  </div> -->
+
+    <div class="form-group">
+      <label class="required">Nome</label>
+      <input type="text" class="form-control" required name="nome" [(ngModel)]="candidato.nome">
+    </div>
+
+    <div class="form-group">
+      <label class="required">Cidade</label>
+      <input type="text" class="form-control" required name="cidade" [(ngModel)]="candidato.cidade">
+    </div>
+
+    <div class="form-group">
+      <label class="required">Nota</label>
+      <input type="number" class="form-control"
+        onkeypress="return event.charCode >= 48 && event.charCode <= 57 ||  event.charCode == 44" required name="nota"
+        [(ngModel)]="candidato.nota">
+      <label class="required-write">* Indica campos obrigatórios</label>
+    </div>
+
+    <div class="form-group text-center">
+      <button class="btn btn-info m-2" type="submit"><i class="fas fa-check"></i> Atualizar</button>
+      <button class="btn btn-danger" type="button" (click)="cancel()"><i class="fas fa-times"></i> Cancelar</button>
+    </div>
+
+  </form>
+</div>
